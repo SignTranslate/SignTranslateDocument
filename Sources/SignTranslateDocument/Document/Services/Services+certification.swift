@@ -15,11 +15,7 @@ extension Services{
         var processed: Bool = false
         var requested: Bool = false
         var requestingForConfirmation:Bool = false
-        var confirmed: Bool = false{
-            didSet{
-                chargeCost()
-            }
-        }
+        var confirmed: Bool = false
         var expressCost: Double = 30
         var standardCost: Double = 10
 

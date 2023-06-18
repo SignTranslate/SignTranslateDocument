@@ -22,20 +22,6 @@ extension Services.Translation: Codable {
         standardCost = try container.decode(Double.self, forKey: .standardCost)
         legalDocsCost = try container.decode(Double.self, forKey: .legalDocsCost)
         requestingForConfirmation = try container.decode(Bool.self, forKey: .requestingForConfirmation)
-        deeplDocument = try container.decodeIfPresent(DeeplApi.DocumentResponse.self, forKey: .deeplDocument)
-        deeplStatus = try container.decodeIfPresent(DeeplApi.DocumentStatus.self, forKey: .deeplStatus)
-        // decode image
-        if let b = try? container.decodeNil(forKey: .deeplResult), b{
-            deeplResult = nil
-        } else {
-            let data = try container.decode(Data.self, forKey: .deeplResult)
-            if let image = UIImage(data: data) {
-                deeplResult = image
-            } else {
-                deeplResult = nil
-            }
-        }
-        
         confirmed = try container.decode(Bool.self, forKey: .confirmed)
         isLegalDocs = try container.decode(Bool.self, forKey: .isLegalDocs)
         translationPreviewImage = decodeImage(from: container, forKey: .translationPreviewImage)
@@ -71,13 +57,6 @@ extension Services.Translation: Codable {
         try container.encode(standardCost, forKey: .standardCost)
         try container.encode(legalDocsCost, forKey: .legalDocsCost)
         try container.encode(requestingForConfirmation, forKey: .requestingForConfirmation)
-        try container.encodeIfPresent(deeplDocument, forKey: .deeplDocument)
-        try container.encodeIfPresent(deeplStatus, forKey: .deeplStatus)
-        if let data = deeplResult?.pngData(){
-            try container.encode(data, forKey: .deeplResult)
-        } else {
-            try container.encodeNil(forKey: .deeplResult)
-        }
         try container.encode(confirmed, forKey: .confirmed)
         try container.encode(isLegalDocs, forKey: .isLegalDocs)
         try encodeImage(translationPreviewImage, to: &container, forKey: .translationPreviewImage)

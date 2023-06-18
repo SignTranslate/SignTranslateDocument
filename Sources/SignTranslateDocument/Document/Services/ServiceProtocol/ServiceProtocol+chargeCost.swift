@@ -9,9 +9,9 @@ import Foundation
 import Foundation
 extension ServiceProtocol{
 
-    func chargeCost(){
+    func chargeCost(callback: @escaping (Double)->Void){
         DispatchQueue.main.async {
-            UserBalance.standard.balance -= self.cost
+            callback(self.cost)
         }
     }
 }

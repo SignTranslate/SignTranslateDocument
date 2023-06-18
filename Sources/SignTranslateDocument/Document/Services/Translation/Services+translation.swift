@@ -18,16 +18,10 @@ extension Services{
         var standardCost: Double = 10
         var legalDocsCost: Double = 60
         var requestingForConfirmation:Bool = false
-        var deeplDocument:DeeplApi.DocumentResponse? = nil
-        var deeplStatus:DeeplApi.DocumentStatus? = nil
         var deeplResult:UIImage? = nil
         var translationPreviewImage:UIImage? = nil
         var originalBackground:Bool = true
-        var confirmed: Bool = false {
-        didSet{
-            chargeCost()
-        }
-    }
+        var confirmed: Bool = false 
         var isLegalDocs:Bool = false
         var cost:Double{
             let expressFee:Double = isExpress ? expressCost:0.0
@@ -123,15 +117,4 @@ extension Services.LanguagePair{
         }
     }
     
-}
-extension Services.Translation{
-    mutating func deeplTranslate(image:UIImage)async{
-        let (sourceLang, targetLang) = self.languagePair.deeplLabel
-        do {
-            guard let response = try await DeeplApi.standard.translateDocs(pdfData: image.pdfData, sourceLang: sourceLang, targetLang: targetLang) else {return}
-            self.deeplDocument = response
-        } catch{
-            print("there is something wrong while upload image for translation \(error)")
-        }
-    }
 }

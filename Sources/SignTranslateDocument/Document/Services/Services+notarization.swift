@@ -13,11 +13,7 @@ extension Services{
         var expressCost: Double = 30
         var standardCost: Double = 10
         var requestingForConfirmation:Bool = false
-        var confirmed: Bool = false {
-            didSet{
-                chargeCost()
-            }
-        }
+        var confirmed: Bool = false 
         var isExpress:Bool = false
     }
 }
