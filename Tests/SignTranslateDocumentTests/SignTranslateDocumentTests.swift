@@ -7,5 +7,8 @@ final class SignTranslateDocumentTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         XCTAssertEqual(SignTranslateDocument().text, "Hello, World!")
+        let document = Document(id: UUID(), name: "test", date: Date.now)
+        
     }
+    
 }

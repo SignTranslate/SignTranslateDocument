@@ -11,8 +11,8 @@ import SwiftUI
 
 
 
-struct Document: Identifiable {
-    let id: UUID
+public struct Document: Identifiable {
+    public let id: UUID
     var name: String
     var date: Date
 //    var previewImage: UIImage = UIImage(named: "placeholder")!
