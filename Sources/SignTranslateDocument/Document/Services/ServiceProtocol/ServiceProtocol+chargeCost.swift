@@ -8,8 +8,9 @@
 import Foundation
 import Foundation
 extension ServiceProtocol{
-
-    func chargeCost(callback: @escaping (Double)->Void){
+    
+    typealias ServiceCost = Double
+    public func chargeCost(callback: @escaping (ServiceCost)->Void){
         DispatchQueue.main.async {
             callback(self.cost)
         }

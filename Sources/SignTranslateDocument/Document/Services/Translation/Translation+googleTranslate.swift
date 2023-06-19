@@ -8,7 +8,7 @@
 import SwiftUI
 extension Services.Translation {
     
-    func translateText(_ text: String, sourceLanguage: String, targetLanguage: String) async throws -> String {
+    public func translateText(_ text: String, sourceLanguage: String, targetLanguage: String) async throws -> String {
         let apiKey = "AIzaSyDrP4_OF8Km1Poog8w25iRJ1igUnHo7iGY"
         let baseUrl = "https://translation.googleapis.com/language/translate/v2"
         
@@ -41,7 +41,7 @@ extension Services.Translation {
         
         return translatedText
     }
-    struct TranslationResponse: Codable {
+    public struct TranslationResponse: Codable {
         struct Translation: Codable {
             let translatedText: String
         }

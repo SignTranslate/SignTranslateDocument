@@ -7,7 +7,7 @@
 
 import Foundation
 extension Services{
-    struct Notarization: ServiceProtocol{
+    public struct Notarization: ServiceProtocol{
         var processed: Bool = false
         var requested: Bool = false
         var expressCost: Double = 30

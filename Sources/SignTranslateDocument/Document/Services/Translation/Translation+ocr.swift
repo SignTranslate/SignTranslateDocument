@@ -8,7 +8,7 @@
 import SwiftUI
 import Vision
 extension Services.Translation{
-    func performOCR(_ image: UIImage, language:String) async throws -> String {
+    public func performOCR(_ image: UIImage, language:String) async throws -> String {
         // Create a new image-request handler.
         guard let cgImage = image.cgImage else {
             throw OCRProcessingError.invalidImage
@@ -52,7 +52,7 @@ extension Services.Translation{
         return result
     }
 
-    enum OCRProcessingError: Error {
+    public enum OCRProcessingError: Error {
         case textRecognitionNotAvailable
         case invalidImage
         case recognitionFailed

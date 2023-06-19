@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Vision
 extension Document{
-    func cropDocument(from inputImage: UIImage, completion: @escaping (UIImage?) -> Void) {
+    public func cropDocument(from inputImage: UIImage, completion: @escaping (UIImage?) -> Void) {
         guard let cgImage = inputImage.cgImage else {
             completion(nil)
             return
@@ -40,7 +40,7 @@ extension Document{
         }
     }
 
-    func cropImage(_ image: UIImage, rectObservation: VNRectangleObservation) -> UIImage? {
+    public func cropImage(_ image: UIImage, rectObservation: VNRectangleObservation) -> UIImage? {
         guard let ciImage = CIImage(image: image) else { return nil }
         
         let topLeft = rectObservation.topLeft.scaled(to: image.size)
@@ -61,7 +61,7 @@ extension Document{
     }
 }
 extension CGPoint {
-    func scaled(to size: CGSize) -> CGPoint {
+    public func scaled(to size: CGSize) -> CGPoint {
         return CGPoint(x: x * size.width, y: (1 - y) * size.height)
     }
 }

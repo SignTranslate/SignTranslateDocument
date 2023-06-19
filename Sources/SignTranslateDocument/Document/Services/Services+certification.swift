@@ -10,7 +10,7 @@ import Foundation
 extension Services{
     
     
-    struct Certification: ServiceProtocol{
+    public struct Certification: ServiceProtocol{
         var isExpress: Bool = false
         var processed: Bool = false
         var requested: Bool = false

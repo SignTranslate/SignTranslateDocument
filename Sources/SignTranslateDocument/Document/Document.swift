@@ -52,11 +52,11 @@ public struct Document: Identifiable {
 
 
 extension Document:Hashable{
-    static func == (lhs: Document, rhs: Document) -> Bool {
+    public static func == (lhs: Document, rhs: Document) -> Bool {
         lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)
         hasher.combine(self.date)
         hasher.combine(self.name)

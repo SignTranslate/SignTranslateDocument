@@ -8,11 +8,11 @@
 import SwiftUI
 
 extension Services.Translation: Codable {
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case isExpress, processed, requested, languagePair, expressCost, standardCost, legalDocsCost, requestingForConfirmation, deeplDocument, deeplStatus, deeplResult, confirmed, isLegalDocs, cost, translationPreviewImage
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         isExpress = try container.decode(Bool.self, forKey: .isExpress)
         processed = try container.decode(Bool.self, forKey: .processed)
@@ -47,7 +47,7 @@ extension Services.Translation: Codable {
             }
         }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(isExpress, forKey: .isExpress)
         try container.encode(processed, forKey: .processed)

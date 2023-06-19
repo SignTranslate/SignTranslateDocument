@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 extension Services{
-    struct Translation: ServiceProtocol{
+    public struct Translation: ServiceProtocol{
         var isExpress: Bool = false
         var processed: Bool = false
         var requested: Bool = false
@@ -36,7 +36,7 @@ extension Services{
    
     
     
-    enum LanguagePair:String, Codable, CaseIterable{
+    public enum LanguagePair:String, Codable, CaseIterable{
         case others = "others"
         case rusEng = "Russian to English"
         case rusTha = "Russian to Thai"
