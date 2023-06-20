@@ -6,7 +6,7 @@
 //
 
 extension Double{
-    var pens:String{
+    public var pens:String{
         String(format: "\(String().pen) %.2f", self)
     }
 }

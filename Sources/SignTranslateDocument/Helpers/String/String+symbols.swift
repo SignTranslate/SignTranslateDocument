@@ -7,16 +7,16 @@
 
 import Foundation
 extension String{
-    var coin:String{
+    public var coin:String{
         "💰"
     }
-    var pen:String{
+    public var pen:String{
         "🖋️"
     }
-    var notarize:String{
+    public var notarize:String{
         "🔖"
     }
-    var certify:String{
+    public var certify:String{
         "📝"
     }
 }

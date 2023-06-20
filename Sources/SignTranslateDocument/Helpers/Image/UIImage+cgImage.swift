@@ -7,7 +7,7 @@
 
 import UIKit
 extension UIImage {
-    var cgImageRepresentation: CGImage? {
+    public var cgImageRepresentation: CGImage? {
         if let cgImage = self.cgImage {
             return cgImage
         } else if let ciImage = self.ciImage {

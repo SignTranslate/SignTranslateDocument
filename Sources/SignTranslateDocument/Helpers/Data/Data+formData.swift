@@ -8,19 +8,19 @@
 import Foundation
 
 extension Data {
-    mutating func append(_ string: String) {
+    public mutating func append(_ string: String) {
         if let data = string.data(using: .utf8) {
             append(data)
         }
     }
 
-    mutating func appendPart(_ part: String, withName name: String, boundary: String) {
+    public mutating func appendPart(_ part: String, withName name: String, boundary: String) {
         append("--\(boundary)\r\n")
         append("Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n")
         append("\(part)\r\n")
     }
 
-    mutating func appendFileData(_ data: Data, withName name: String, fileName: String, mimeType: String, boundary: String) {
+    public mutating func appendFileData(_ data: Data, withName name: String, fileName: String, mimeType: String, boundary: String) {
         append("--\(boundary)\r\n")
         append("Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(fileName)\"\r\n")
         append("Content-Type: \(mimeType)\r\n\r\n")
@@ -28,7 +28,7 @@ extension Data {
         append("\r\n")
     }
 
-    mutating func closeMultipartFormData(boundary: String) {
+    public mutating func closeMultipartFormData(boundary: String) {
         append("--\(boundary)--\r\n")
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 extension Double{
-    var dollars:String{
+    public var dollars:String{
         String(format: "$ %.2f", self)
     }
 }

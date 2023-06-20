@@ -7,13 +7,13 @@
 
 import Foundation
 extension Int{
-    var hex:String{
+    public var hex:String{
         String(format: "%02x", self)
     }
 }
 
 extension UInt8{
-    var hex:String{
+    public var hex:String{
         String(format: "%02x", self)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
  extension UIApplication {
 
-     func rootController() -> UIViewController {
+     public func rootController() -> UIViewController {
          guard let window = connectedScenes.first as? UIWindowScene else { return .init() }
          guard let viewController = window.windows.last?.rootViewController else { return .init() }
 

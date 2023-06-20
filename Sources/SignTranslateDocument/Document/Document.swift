@@ -13,16 +13,16 @@ import SwiftUI
 
 public struct Document: Identifiable {
     public let id: UUID
-    var name: String
-    var date: Date
+    public var name: String
+    public var date: Date
 //    var previewImage: UIImage = UIImage(named: "placeholder")!
-    var services: Services = Services()
-    var image: UIImage = UIImage(named: "phDocs")!
-    var editedImage: UIImage = UIImage(named: "phDocs")!
-    var processedImage:UIImage? = nil
-    var docsType:DocsType = .contract
+    public var services: Services = Services()
+    public var image: UIImage = UIImage(named: "phDocs")!
+    public var editedImage: UIImage = UIImage(named: "phDocs")!
+    public var processedImage:UIImage? = nil
+    public var docsType:DocsType = .contract
 
-    enum DocsType: String, CaseIterable{
+    public enum DocsType: String, CaseIterable{
         case contract = "contract/agreements"
         case id = "ID card"
         case passport = "passport"
@@ -35,7 +35,7 @@ public struct Document: Identifiable {
         case others = "others"
     }
     
-    var previewImage: UIImage{
+    public var previewImage: UIImage{
         if let processedImage = processedImage{
             return processedImage
         }

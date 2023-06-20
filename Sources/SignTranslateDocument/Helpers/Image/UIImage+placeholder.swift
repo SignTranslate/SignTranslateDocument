@@ -7,5 +7,5 @@
 
 import SwiftUI
 extension UIImage{
-    static var docsPlaceholder = UIImage(named: "phDocs")!
+    public static var docsPlaceholder = UIImage(named: "phDocs")!
 }

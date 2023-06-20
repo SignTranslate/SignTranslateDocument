@@ -5,26 +5,26 @@
 //  Created by nic wanavit on 5/10/23.
 //
 import SwiftUI
-struct Country: Codable, Identifiable, Hashable {
-    static func == (lhs: Country, rhs: Country) -> Bool {
+public struct Country: Codable, Identifiable, Hashable {
+    public static func == (lhs: Country, rhs: Country) -> Bool {
         lhs.name.common == rhs.name.common
     }
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(self.name.common)
     }
     
-    var id: String { name.common }
+    public var id: String { name.common }
     let name: Name
     struct Name:Codable{
         var common:String
     }
 }
-struct CountryDropdownList: View {
+public struct CountryDropdownList: View {
     @State private var countries = [Country]()
     @Binding var selectedCountry: String
     @State private var searchText: String = ""
     
-    var body: some View {
+    public var body: some View {
         
         VStack{
             SearchBar(text: $searchText)
@@ -60,10 +60,10 @@ struct CountryDropdownList_Previews: PreviewProvider {
         CountryDropdownList(selectedCountry: .constant("cambodia"))
     }
 }
-struct SearchBar: View {
+public struct SearchBar: View {
     @Binding var text: String
     @State var isEditing = false
-    var body: some View {
+    public var body: some View {
         HStack {
             TextField("Search Countries", text: $text)
 //                .padding(7)

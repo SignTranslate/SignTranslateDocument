@@ -7,7 +7,7 @@
 
 import UIKit
 extension UIImage{
-    func compressedImage(ratio:CGFloat)->UIImage{
+    public func compressedImage(ratio:CGFloat)->UIImage{
         let data = self.jpegData(compressionQuality: ratio)
         return UIImage(data: data!)!
     }
