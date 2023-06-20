@@ -7,7 +7,7 @@
 
 import Foundation
 extension ServiceProtocol{
-    var cost:Double{
+    public var cost:Double{
         get{
             standardCost + (isExpress ? expressCost: 0.0)
         }
