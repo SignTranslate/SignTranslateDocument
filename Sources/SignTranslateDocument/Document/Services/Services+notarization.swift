@@ -15,5 +15,11 @@ extension Services{
         public var requestingForConfirmation:Bool = false
         public var confirmed: Bool = false
         public var isExpress:Bool = false
+        
+        public var cost:Double{
+            get{
+                standardCost + (isExpress ? expressCost: 0.0)
+            }
+        }
     }
 }

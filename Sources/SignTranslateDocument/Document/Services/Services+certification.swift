@@ -18,7 +18,12 @@ extension Services{
         public var confirmed: Bool = false
         public var expressCost: Double = 30
         public var standardCost: Double = 10
-
+        
+        public var cost:Double{
+            get{
+                standardCost + (isExpress ? expressCost: 0.0)
+            }
+        }
     }
     
     
