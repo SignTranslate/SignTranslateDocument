@@ -8,12 +8,12 @@
 import Foundation
 extension Services{
     public struct Notarization: ServiceProtocol{
-        var processed: Bool = false
-        var requested: Bool = false
-        var expressCost: Double = 30
-        var standardCost: Double = 10
-        var requestingForConfirmation:Bool = false
-        var confirmed: Bool = false 
-        var isExpress:Bool = false
+        public var processed: Bool = false
+        public var requested: Bool = false
+        public var expressCost: Double = 30
+        public var standardCost: Double = 10
+        public var requestingForConfirmation:Bool = false
+        public var confirmed: Bool = false
+        public var isExpress:Bool = false
     }
 }

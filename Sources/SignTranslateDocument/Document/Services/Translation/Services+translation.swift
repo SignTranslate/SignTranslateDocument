@@ -10,25 +10,25 @@ import Combine
 
 extension Services{
     public struct Translation: ServiceProtocol{
-        var isExpress: Bool = false
-        var processed: Bool = false
-        var requested: Bool = false
-        var languagePair:LanguagePair = .rusEng
-        var expressCost: Double = 30
-        var standardCost: Double = 10
-        var legalDocsCost: Double = 60
-        var requestingForConfirmation:Bool = false
-        var deeplResult:UIImage? = nil
-        var translationPreviewImage:UIImage? = nil
-        var originalBackground:Bool = true
-        var confirmed: Bool = false 
-        var isLegalDocs:Bool = false
-        var cost:Double{
+        public var isExpress: Bool = false
+        public var processed: Bool = false
+        public var requested: Bool = false
+        public var languagePair:LanguagePair = .rusEng
+        public var expressCost: Double = 30
+        public var standardCost: Double = 10
+        public var legalDocsCost: Double = 60
+        public var requestingForConfirmation:Bool = false
+        public var deeplResult:UIImage? = nil
+        public var translationPreviewImage:UIImage? = nil
+        public var originalBackground:Bool = true
+        public var confirmed: Bool = false
+        public var isLegalDocs:Bool = false
+        public var cost:Double{
             let expressFee:Double = isExpress ? expressCost:0.0
             let legalFee:Double = isLegalDocs ? legalDocsCost: 0.0
             return standardCost + expressFee + legalFee
         }
-        var previewAvailable: Bool{
+        public var previewAvailable: Bool{
             translationPreviewImage != nil
         }
 
