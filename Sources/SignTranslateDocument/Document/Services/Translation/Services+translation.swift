@@ -55,38 +55,8 @@ extension Services{
 }
 
 extension Services.LanguagePair{
-    /// Returns the (sourceLang, DestinationLang) for deepl
-    var deeplLabel:(String,String){
-        switch self{
-        case .others:
-            return ("OT","OT")
-        case .rusEng:
-            return ("RU","EN-US")
-        case .rusTha:
-            return ("RU","TH")
-        case .rusChn:
-            return ("RU", "ZN")
-        case .chnEng:
-            return ("ZN","EN-US")
-        case .chnRus:
-            return ("ZN", "RU")
-        case .chnTha:
-            return ("ZN", "TH")
-        case .engTha:
-            return ("EN", "TH")
-        case .engRus:
-            return ("EN", "RU")
-        case .engChn:
-            return ("EN", "ZN")
-        case .thaEng:
-            return ("TH", "EN")
-        case .thaChn:
-            return ("TH", "ZN")
-        case .thaRus:
-            return ("TH", "RU")
-        }
-    }
-    var googLabel:(String,String){
+    // MARK: google label
+    public var googLabel:(String,String){
         switch self{
         case .others:
             return ("en","ru")

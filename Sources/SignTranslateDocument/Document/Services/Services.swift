@@ -9,8 +9,8 @@
 
 public struct Services:Codable{
     public static var example = Services()
-    var notarization = Notarization()
-    var translation = Translation()
-    var certification = Certification()
+    public var notarization = Notarization()
+    public var translation = Translation()
+    public var certification = Certification()
 }
 
