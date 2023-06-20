@@ -42,7 +42,7 @@ public struct Document: Identifiable {
         return editedImage
     }
     
-    static let example = [
+    public static let example = [
         Document(id: UUID(), name: "Document 1", date: Date()),
         Document(id: UUID(), name: "Document 2", date: Date().addingTimeInterval(-3600)),
         Document(id: UUID(), name: "Document 3", date: Date().addingTimeInterval(-7200))
