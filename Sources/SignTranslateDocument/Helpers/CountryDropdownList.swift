@@ -14,15 +14,22 @@ public struct Country: Codable, Identifiable, Hashable {
     }
     
     public var id: String { name.common }
-    let name: Name
-    struct Name:Codable{
-        var common:String
+    public let name: Name
+    public struct Name:Codable{
+        public var common:String
     }
 }
 public struct CountryDropdownList: View {
     @State private var countries = [Country]()
     @Binding var selectedCountry: String
     @State private var searchText: String = ""
+    
+    
+    public init(countries: [Country] = [Country](), selectedCountry: Binding<String>, searchText: String = "") {
+        self.countries = countries
+        self._selectedCountry = selectedCountry
+        self.searchText = searchText
+    }
     
     public var body: some View {
         
@@ -63,41 +70,21 @@ struct CountryDropdownList_Previews: PreviewProvider {
 public struct SearchBar: View {
     @Binding var text: String
     @State var isEditing = false
+    
+    public init(text: Binding<String>, isEditing: Bool = false) {
+        self._text = text
+        self.isEditing = isEditing
+    }
+    
     public var body: some View {
         HStack {
             TextField("Search Countries", text: $text)
-//                .padding(7)
-//                .padding(.horizontal, 25)
-//                .background(Color.gray)
-//                .cornerRadius(8)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
-//                        if isEditing {
-//                            Button(action: {
-//                                text = ""
-//                            }) {
-//                                Image(systemName: "multiply.circle.fill")
-//                                    .foregroundColor(.gray)
-////                                    .padding(.trailing, 8)
-//                            }
-//                        }
                     }
                 ).padding(.horizontal, 10)
-//                .onTapGesture {
-//                    isEditing = true
-//                }
-//            if isEditing {
-//                Button(action: {
-//                    isEditing = false
-//                    text = ""
-//                }) {
-//                    Text("Cancel")
-//                }.padding(.trailing, 10)
-//                .transition(.move(edge: .trailing))
-//                .animation(.default)
-//            }
         }
     }
 }
