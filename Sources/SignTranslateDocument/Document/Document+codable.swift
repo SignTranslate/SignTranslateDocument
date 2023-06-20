@@ -10,7 +10,7 @@ import SwiftUI
 // Document
 extension Document: Codable {
     enum CodingKeys: CodingKey {
-        case id, name, date, services, image, editedImage, processedImage
+        case id, name, date, services, image, editedImage, processedImage, docsType
     }
     
     public init(from decoder: Decoder) throws {
@@ -28,6 +28,9 @@ extension Document: Codable {
         
         let processedImageData = (try? container.decode(Data.self, forKey: .processedImage)) ?? Data()
         processedImage = UIImage(data: processedImageData)
+        
+        docsType = try container.decode(DocsType.self, forKey: .docsType)
+
     }
     
     public func encode(to encoder: Encoder) throws {

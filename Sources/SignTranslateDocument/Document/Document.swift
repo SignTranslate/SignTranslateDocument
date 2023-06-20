@@ -15,14 +15,31 @@ public struct Document: Identifiable {
     public let id: UUID
     public var name: String
     public var date: Date
-//    var previewImage: UIImage = UIImage(named: "placeholder")!
-    public var services: Services = Services()
-    public var image: UIImage = UIImage(named: "phDocs")!
-    public var editedImage: UIImage = UIImage(named: "phDocs")!
-    public var processedImage:UIImage? = nil
-    public var docsType:DocsType = .contract
+    public var services: Services
+    public var image: UIImage
+    public var editedImage: UIImage
+    public var processedImage:UIImage?
+    public var docsType:DocsType
+    public init(
+        id: UUID,
+        name: String,
+        date: Date,
+        services: Services = Services(),
+        image: UIImage = UIImage(named: "phDocs")!,
+        editedImage: UIImage = UIImage(named: "phDocs")!,
+        processedImage: UIImage? = nil,
+        docsType: DocsType = .contract) {
+        self.id = id
+        self.name = name
+        self.date = date
+        self.services = services
+        self.image = image
+        self.editedImage = editedImage
+        self.processedImage = processedImage
+        self.docsType = docsType
+    }
 
-    public enum DocsType: String, CaseIterable{
+    public enum DocsType: String, CaseIterable, Codable{
         case contract = "contract/agreements"
         case id = "ID card"
         case passport = "passport"
