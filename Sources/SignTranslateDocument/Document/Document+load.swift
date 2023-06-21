@@ -10,7 +10,7 @@ import FirebaseStorage
 import Firebase
 import FirebaseFirestoreSwift
 extension Document{
-    public func loadDocuments(userId:String) async throws-> [Document]{
+    public static func loadDocuments(userId:String) async throws-> [Document]{
         let database = Firestore.firestore()
         let userRef = database.collection("users").document(userId)
         let documentsRef = try await userRef.collection("documents").getDocuments()
