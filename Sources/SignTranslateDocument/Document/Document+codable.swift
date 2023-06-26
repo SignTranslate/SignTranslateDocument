@@ -29,7 +29,7 @@ extension Document: Codable {
         let processedImageData = (try? container.decode(Data.self, forKey: .processedImage)) ?? Data()
         processedImage = UIImage(data: processedImageData)
         
-        docsType = try container.decode(DocsType.self, forKey: .docsType)
+        docsType = (try? container.decode(DocsType.self, forKey: .docsType)) ?? DocsType.id
 
     }
     
