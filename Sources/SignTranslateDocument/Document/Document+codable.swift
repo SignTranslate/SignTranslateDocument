@@ -40,15 +40,9 @@ extension Document: Codable {
         try container.encode(date, forKey: .date)
         try container.encode(services, forKey: .services)
         
-        if let imageData = image.pngData(){
-            try container.encode(imageData, forKey: .image)
-        }
-        
-        if let editedImageData = editedImage.pngData(){
-            try container.encode(editedImageData, forKey: .editedImage)
-        }
-        if let processedImageData = processedImage?.pngData(){
-            try container.encode(processedImageData, forKey: .processedImage)
-        }
+        if let imageData = image.pngData(){ try container.encode(imageData, forKey: .image) }
+        if let editedImageData = editedImage.pngData(){ try container.encode(editedImageData, forKey: .editedImage) }
+        if let processedImageData = processedImage?.pngData(){ try container.encode(processedImageData, forKey: .processedImage) }
+        try container.encode(docsType, forKey: .docsType)
     }
 }
