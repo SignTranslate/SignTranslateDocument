@@ -7,7 +7,7 @@
 
 import Foundation
 extension Document{
-    var serviceRequested:Bool{
+    public var serviceRequested:Bool{
         let notarization = services.notarization
         guard !notarization.requested else {return true}
         let certification = services.certification
