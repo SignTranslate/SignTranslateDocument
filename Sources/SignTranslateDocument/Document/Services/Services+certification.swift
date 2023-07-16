@@ -24,6 +24,26 @@ extension Services{
                 standardCost + (isExpress ? expressCost: 0.0)
             }
         }
+        public init(){}
+        public init(isExpress: Bool, processed: Bool, requested: Bool, requestingForConfirmation: Bool, confirmed: Bool, expressCost: Double, standardCost: Double) {
+            self.isExpress = isExpress
+            self.processed = processed
+            self.requested = requested
+            self.requestingForConfirmation = requestingForConfirmation
+            self.confirmed = confirmed
+            self.expressCost = expressCost
+            self.standardCost = standardCost
+        }
+        public init(from decoder: Decoder) throws {
+            let container: KeyedDecodingContainer<Services.Certification.CodingKeys> = try decoder.container(keyedBy: Services.Certification.CodingKeys.self)
+            self.isExpress = try container.decode(Bool.self, forKey: Services.Certification.CodingKeys.isExpress)
+            self.processed = try container.decode(Bool.self, forKey: Services.Certification.CodingKeys.processed)
+            self.requested = try container.decode(Bool.self, forKey: Services.Certification.CodingKeys.requested)
+            self.requestingForConfirmation = try container.decode(Bool.self, forKey: Services.Certification.CodingKeys.requestingForConfirmation)
+            self.confirmed = try container.decode(Bool.self, forKey: Services.Certification.CodingKeys.confirmed)
+            self.expressCost = try container.decode(Double.self, forKey: Services.Certification.CodingKeys.expressCost)
+            self.standardCost = try container.decode(Double.self, forKey: Services.Certification.CodingKeys.standardCost)
+        }
     }
     
     

@@ -31,6 +31,24 @@ extension Services{
         public var previewAvailable: Bool{
             translationPreviewImage != nil
         }
+        public init(){
+            
+        }
+        public init(isExpress: Bool, processed: Bool, requested: Bool, languagePair: LanguagePair, expressCost: Double, standardCost: Double, legalDocsCost: Double, requestingForConfirmation: Bool, deeplResult: UIImage? = nil, translationPreviewImage: UIImage? = nil, originalBackground: Bool, confirmed: Bool, isLegalDocs: Bool) {
+            self.isExpress = isExpress
+            self.processed = processed
+            self.requested = requested
+            self.languagePair = languagePair
+            self.expressCost = expressCost
+            self.standardCost = standardCost
+            self.legalDocsCost = legalDocsCost
+            self.requestingForConfirmation = requestingForConfirmation
+            self.deeplResult = deeplResult
+            self.translationPreviewImage = translationPreviewImage
+            self.originalBackground = originalBackground
+            self.confirmed = confirmed
+            self.isLegalDocs = isLegalDocs
+        }
 
     }
    
